@@ -108,7 +108,7 @@ class LocalDataSource {
   /// Get app settings
   AppSettings getSettings() {
     final data = _storageService.getSettings();
-    if (data == null) return const AppSettings();
+    if (data == null) return AppSettings();
     return AppSettings.fromJson(data);
   }
 

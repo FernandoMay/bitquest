@@ -350,9 +350,7 @@ class LightningRaceGameInstance extends FlameGame with TapCallbacks {
   void _startRace() {
     if (_isRacing) return;
 
-    setState(() {
-      _isRacing = true;
-    });
+    _isRacing = true;
 
     _raceTrack.startRace();
     _infoPanel.showRacing();
@@ -805,8 +803,8 @@ class StartButton extends PositionComponent with TapCallbacks {
     );
 
     // Text
-    const textPainter = TextPainter(
-      text: TextSpan(
+    final textPainter = TextPainter(
+      text: const TextSpan(
         text: '  START RACE',
         style: TextStyle(
           color: Colors.white,

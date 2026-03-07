@@ -1,5 +1,5 @@
+import 'package:bitquest/core/theme/colors.dart';
 import 'package:flutter/material.dart';
-import '../../../core/theme/colors.dart';
 
 /// Mission model representing a learning path in BitQuest
 class Mission {

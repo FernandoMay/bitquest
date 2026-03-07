@@ -439,10 +439,7 @@ class BlockStructure extends PositionComponent {
     final headerPaint = Paint()..color = bitcoinOrange;
     final headerRRect = RRect.fromRectAndRadius(
       Rect.fromLTWH(0, 0, size.x, 50),
-      const Radius.only(
-        topLeft: Radius.circular(16),
-        topRight: Radius.circular(16),
-      ),
+      const Radius.circular(16),
     );
     canvas.drawRRect(headerRRect, headerPaint);
 
@@ -540,18 +537,19 @@ class DropZone extends PositionComponent with HasGameRef {
   }
 
   bool checkDrop(String componentId, Vector2 globalPosition) {
-    final localPos = globalPosition - absolutePosition.toOffset();
+    final localPos = globalPosition - absolutePosition;
     if (containsLocalPoint(localPos)) {
       return true;
     }
     return false;
   }
 
-  bool containsLocalPoint(Offset point) {
-    return point.dx >= 0 &&
-        point.dx <= size.x &&
-        point.dy >= 0 &&
-        point.dy <= size.y;
+  @override
+  bool containsLocalPoint(Vector2 point) {
+    return point.x >= 0 &&
+        point.x <= size.x &&
+        point.y >= 0 &&
+        point.y <= size.y;
   }
 }
 
@@ -705,7 +703,7 @@ class DropZoneManager extends Component with HasGameRef<BuildABlockGameInstance>
     final blockStructure = gameRef.children.whereType<BlockStructure>().first;
 
     for (var zone in blockStructure.dropZones) {
-      if (zone.checkDrop(component.data.id, position.toOffset())) {
+      if (zone.checkDrop(component.data.id, position)) {
         // Check if correct placement
         final isCorrect = zone.id == component.data.id;
 

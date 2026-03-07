@@ -265,9 +265,9 @@ class _AiTutorChatPageState extends State<AiTutorChatPage> {
             Container(
               width: 40,
               height: 40,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 shape: BoxShape.circle,
-                gradient: const LinearGradient(
+                gradient: LinearGradient(
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                   colors: [Color(0xFF6B4EE6), Color(0xFF8B5CF6)],
@@ -329,12 +329,12 @@ class _AiTutorChatPageState extends State<AiTutorChatPage> {
   }
 }
 
-/// Export for easy access
-export 'chat_page.dart';
-export 'bloc/ai_tutor_bloc.dart';
-export 'bloc/ai_tutor_event.dart';
-export 'bloc/ai_tutor_state.dart';
-export 'models/chat_message.dart';
-export 'services/ai_tutor_service.dart';
-export 'widgets/message_bubble.dart';
-export 'widgets/chat_input.dart';
+// /// Export for easy access
+// export 'chat_page.dart';
+// export 'bloc/ai_tutor_bloc.dart';
+// export 'bloc/ai_tutor_event.dart';
+// export 'bloc/ai_tutor_state.dart';
+// export 'models/chat_message.dart';
+// export 'services/ai_tutor_service.dart';
+// export 'widgets/message_bubble.dart';
+// export 'widgets/chat_input.dart';

@@ -1,7 +1,7 @@
+import 'package:bitquest/features/ai_tutor/bloc/ai_tutor_event.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import 'core/theme/app_theme.dart';
 import 'core/theme/colors.dart';
@@ -45,11 +45,11 @@ class BITQUESTApp extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (context) => MissionsBloc(
-            missionRepository: MissionRepositoryImpl(),
+            repository: MissionRepositoryImpl(),
           )..add(LoadMissions()),
         ),
         BlocProvider(
-          create: (context) => AiTutorBloc()..add(InitializeChat()),
+          create: (context) => AiTutorBloc()..add(const InitializeChat()),
         ),
       ],
       child: MaterialApp(

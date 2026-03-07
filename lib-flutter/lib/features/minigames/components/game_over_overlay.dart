@@ -335,7 +335,7 @@ class PauseOverlay extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                const Icon(
+                Icon(
                   Icons.pause_circle_filled,
                   size: 64,
                   color: bitcoinOrange,

@@ -13,7 +13,7 @@ class PlayerProgress {
     this.currentLevel = 1,
     this.currentLevelXp = 0,
     this.missionProgress = const {},
-    this.lastUpdated = DateTime.now,
+    this.lastUpdated = const DateTime.now(),
   });
 
   factory PlayerProgress.fromJson(Map<String, dynamic> json) {

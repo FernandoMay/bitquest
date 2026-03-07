@@ -11,7 +11,7 @@ class AppTheme {
     return ThemeData(
       useMaterial3: true,
       brightness: Brightness.dark,
-      colorScheme: ColorScheme.dark(
+      colorScheme: const ColorScheme.dark(
         primary: AppColors.bitcoinOrange,
         secondary: AppColors.lightningPurple,
         surface: AppColors.gray,
@@ -34,7 +34,7 @@ class AppTheme {
           color: AppColors.textPrimary,
         ),
       ),
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         color: AppColors.gray,
         elevation: 0,
         shape: RoundedRectangleBorder(
@@ -154,7 +154,7 @@ class AppTheme {
     return ThemeData(
       useMaterial3: true,
       brightness: Brightness.light,
-      colorScheme: ColorScheme.light(
+      colorScheme: const ColorScheme.light(
         primary: AppColors.bitcoinOrange,
         secondary: AppColors.lightningPurple,
         surface: Colors.white,
@@ -166,13 +166,13 @@ class AppTheme {
       ),
       scaffoldBackgroundColor: Colors.grey[100],
       textTheme: _buildTextTheme(isDark: false),
-      appBarTheme: AppBarTheme(
+      appBarTheme: const AppBarTheme(
         backgroundColor: Colors.white,
         foregroundColor: AppColors.textDark,
         elevation: 0,
         centerTitle: true,
       ),
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         color: Colors.white,
         elevation: 2,
         shape: RoundedRectangleBorder(

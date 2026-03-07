@@ -22,7 +22,7 @@ class _HomePageState extends State<HomePage> {
   final List<Widget> _pages = [
     const MissionsPage(),
     const MinigamesPage(),
-    const ChatPage(),
+    const AiTutorChatPage(),
     const ProfilePage(),
   ];
 

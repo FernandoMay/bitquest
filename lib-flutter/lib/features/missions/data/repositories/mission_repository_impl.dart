@@ -1,5 +1,6 @@
+import 'dart:ui';
+
 import '../models/mission.dart';
-import '../models/player_progress.dart';
 
 /// Mission repository implementation
 class MissionRepositoryImpl {
@@ -33,7 +34,7 @@ class MissionRepositoryImpl {
   /// Get default missions for BitQuest
   List<Mission> _getDefaultMissions() {
     return [
-      Mission(
+      const Mission(
         id: 'bitcoin_basics',
         title: 'Bitcoin Basics',
         description: 'Learn the fundamentals of Bitcoin and why it matters.',
@@ -126,8 +127,9 @@ Each bitcoin is interchangeable with another bitcoin.
             xpReward: 25,
           ),
         ],
+        color: const Color(0xFF2196F3),
       ),
-      Mission(
+      const Mission(
         id: 'mining_basics',
         title: 'Mining & Consensus',
         description: 'Understand how Bitcoin mining works and secures the network.',
@@ -184,8 +186,9 @@ Bitcoin uses Proof of Work (PoW) to secure its network.
             xpReward: 30,
           ),
         ],
+        color: const Color(0xFF2196F3),
       ),
-      Mission(
+      const Mission(
         id: 'wallets_security',
         title: 'Wallets & Security',
         description: 'Learn how to store your Bitcoin safely.',
@@ -194,8 +197,9 @@ Bitcoin uses Proof of Work (PoW) to secure its network.
         xpReward: 150,
         unlocked: false,
         category: 'intermediate',
+        color: const Color(0xFF2196F3),
       ),
-      Mission(
+      const Mission(
         id: 'lightning_network',
         title: 'Lightning Network',
         description: 'Discover Bitcoin\'s second layer for instant payments.',
@@ -204,8 +208,9 @@ Bitcoin uses Proof of Work (PoW) to secure its network.
         xpReward: 200,
         unlocked: false,
         category: 'advanced',
+        color: const Color(0xFF2196F3),
       ),
-      Mission(
+      const Mission(
         id: 'bitcoin_economics',
         title: 'Bitcoin Economics',
         description: 'Understand Bitcoin\'s monetary policy and value.',
@@ -214,6 +219,7 @@ Bitcoin uses Proof of Work (PoW) to secure its network.
         xpReward: 200,
         unlocked: false,
         category: 'advanced',
+        color: const Color(0xFF2196F3),
       ),
     ];
   }

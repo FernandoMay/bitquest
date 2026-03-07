@@ -97,7 +97,7 @@ class _XpPopupState extends State<XpPopup> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    final bitcoinOrange = const Color(0xFFF7931A);
+    const bitcoinOrange = Color(0xFFF7931A);
 
     return Material(
       color: Colors.transparent,
@@ -119,7 +119,7 @@ class _XpPopupState extends State<XpPopup> with SingleTickerProviderStateMixin {
                         // Star burst effect
                         Transform.rotate(
                           angle: _rotateAnimation.value,
-                          child: Icon(
+                          child: const Icon(
                             Icons.star,
                             size: 80,
                             color: bitcoinOrange,
@@ -250,7 +250,7 @@ class _FloatingXpIndicatorState extends State<FloatingXpIndicator>
 
   @override
   Widget build(BuildContext context) {
-    final bitcoinOrange = const Color(0xFFF7931A);
+    const bitcoinOrange = Color(0xFFF7931A);
 
     return Positioned(
       left: widget.startPosition.dx,
@@ -313,8 +313,8 @@ class XpProgressBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bitcoinOrange = const Color(0xFFF7931A);
-    final darkCard = const Color(0xFF16213E);
+    const bitcoinOrange = Color(0xFFF7931A);
+    const darkCard = Color(0xFF16213E);
     final progress = currentXp / xpToNextLevel;
 
     return Column(

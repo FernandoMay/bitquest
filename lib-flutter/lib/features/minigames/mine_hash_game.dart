@@ -145,20 +145,20 @@ class _MineHashGameState extends State<MineHashGame> with TickerProviderStateMix
             if (_showTutorial)
               TutorialOverlay(
                 title: 'Mine the Hash',
-                steps: [
-                  const TutorialStep(
+                steps: const [
+                  TutorialStep(
                     title: 'Become a Bitcoin Miner!',
                     description:
                         'Try to find a hash that starts with zeros (the difficulty target). Click to try different nonces!',
                     icon: Icons.memory,
                   ),
-                  const TutorialStep(
+                  TutorialStep(
                     title: 'Change the Nonce',
                     description:
                         'Each click changes the nonce and generates a new hash. Find one with enough leading zeros!',
                     icon: Icons.touch_app,
                   ),
-                  const TutorialStep(
+                  TutorialStep(
                     title: 'Difficulty Matters',
                     description:
                         'Higher difficulty = more zeros needed. Easy: 1 zero, Medium: 2 zeros, Hard: 3 zeros',
@@ -772,8 +772,8 @@ class MiningButton extends PositionComponent with TapCallbacks {
     );
 
     // Draw text
-    const textPainter = TextPainter(
-      text: TextSpan(
+    final textPainter = TextPainter(
+      text: const TextSpan(
         text: 'TAP TO MINE',
         style: TextStyle(
           color: Colors.white,
