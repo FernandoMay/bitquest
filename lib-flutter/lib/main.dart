@@ -31,7 +31,7 @@ void main() async {
   );
   
   // Initialize storage
-  await StorageService.instance.init();
+  await StorageService.init();
   
   runApp(const BITQUESTApp());
 }

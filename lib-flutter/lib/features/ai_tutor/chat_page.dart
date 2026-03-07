@@ -18,19 +18,17 @@ class AiTutorChatPage extends StatefulWidget {
 
 class _AiTutorChatPageState extends State<AiTutorChatPage> {
   final ScrollController _scrollController = ScrollController();
-  final AiTutorBloc _bloc = AiTutorBloc();
 
   @override
   void initState() {
     super.initState();
     // Initialize chat with welcome message
-    _bloc.add(const InitializeChat());
+    context.read<AiTutorBloc>().add(const InitializeChat());
   }
 
   @override
   void dispose() {
     _scrollController.dispose();
-    _bloc.close();
     super.dispose();
   }
 
@@ -45,46 +43,47 @@ class _AiTutorChatPageState extends State<AiTutorChatPage> {
   }
 
   void _handleSendMessage(String message) {
-    _bloc.add(SendMessage(message));
+    context.read<AiTutorBloc>().add(SendMessage(message));
     // Delay scroll to allow message to be added
     Future.delayed(const Duration(milliseconds: 100), _scrollToBottom);
   }
 
   void _handleClearChat() {
-    _bloc.add(const ClearChat());
+    context.read<AiTutorBloc>().add(const ClearChat());
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider.value(
-      value: _bloc,
-      child: Scaffold(
-        backgroundColor: const Color(0xFF0D0D1A),
-        appBar: _buildAppBar(),
-        body: Column(
-          children: [
-            // Messages list
-            Expanded(
-              child: BlocConsumer<AiTutorBloc, AiTutorState>(
-                listener: (context, state) {
-                  // Scroll to bottom when new message is added
-                  WidgetsBinding.instance.addPostFrameCallback((_) {
-                    _scrollToBottom();
-                  });
-                },
-                builder: (context, state) {
-                  return _buildMessagesList(state);
-                },
-              ),
+    return Scaffold(
+      backgroundColor: const Color(0xFF0D0D1A),
+      appBar: _buildAppBar(),
+      body: Column(
+        children: [
+          // Messages list
+          Expanded(
+            child: BlocConsumer<AiTutorBloc, AiTutorState>(
+              listener: (context, state) {
+                // Scroll to bottom when new message is added
+                WidgetsBinding.instance.addPostFrameCallback((_) {
+                  _scrollToBottom();
+                });
+              },
+              builder: (context, state) {
+                return _buildMessagesList(state);
+              },
             ),
-            // Chat input
-            ChatInput(
-              onSendMessage: _handleSendMessage,
-              isLoading: state is AiTutorLoading,
-              quickQuestions: QuickQuestions.all,
-            ),
-          ],
-        ),
+          ),
+          // Chat input
+          BlocBuilder<AiTutorBloc, AiTutorState>(
+            builder: (context, state) {
+              return ChatInput(
+                onSendMessage: _handleSendMessage,
+                isLoading: state is AiTutorLoading,
+                quickQuestions: QuickQuestions.all,
+              );
+            },
+          ),
+        ],
       ),
     );
   }

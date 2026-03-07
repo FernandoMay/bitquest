@@ -4,14 +4,17 @@ import '../constants/app_constants.dart';
 
 /// Service for local storage operations
 class StorageService {
+  static StorageService? _instance;
+  static StorageService get instance => _instance!;
+  
   final SharedPreferences _prefs;
 
   StorageService({required SharedPreferences prefs}) : _prefs = prefs;
 
   /// Initialize storage service
-  static Future<StorageService> init() async {
+  static Future<void> init() async {
     final prefs = await SharedPreferences.getInstance();
-    return StorageService(prefs: prefs);
+    _instance = StorageService(prefs: prefs);
   }
 
   // ============ Player Data ============

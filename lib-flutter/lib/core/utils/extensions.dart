@@ -40,15 +40,31 @@ extension StringExtensions on String {
 extension NumberExtensions on num {
   /// Format number with commas
   String get formatWithCommas {
-    return toString().replaceAllMapped(
-      RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'),
-      (Match m) => '${m[1]},',
-    );
+    final string = toString();
+    if (string.length <= 3) return string;
+    
+    final buffer = StringBuffer();
+    var count = 0;
+    
+    for (int i = string.length - 1; i >= 0; i--) {
+      buffer.write(string[i]);
+      count++;
+      if (count == 3 && i != 0) {
+        buffer.write(',');
+        count = 0;
+      }
+    }
+    
+    return buffer.toString().split('').reversed.join('');
   }
 
   /// Format as currency (USD)
   String get formatAsCurrency {
-    return '\$${toDouble().toStringAsFixed(2).formatWithCommas}';
+    final value = toDouble();
+    final formattedValue = value.toStringAsFixed(2);
+    final parts = formattedValue.split('.');
+    final integerPart = int.parse(parts[0]).formatWithCommas;
+    return '\$$integerPart.${parts[1]}';
   }
 
   /// Format as percentage

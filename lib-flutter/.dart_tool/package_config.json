@@ -158,6 +158,12 @@
       "languageVersion": "3.1"
     },
     {
+      "name": "flutter_markdown",
+      "rootUri": "file:///Users/fmf/.pub-cache/hosted/pub.dev/flutter_markdown-0.7.7+1",
+      "packageUri": "lib/",
+      "languageVersion": "3.4"
+    },
+    {
       "name": "flutter_shaders",
       "rootUri": "file:///Users/fmf/.pub-cache/hosted/pub.dev/flutter_shaders-0.1.3",
       "packageUri": "lib/",
@@ -218,6 +224,12 @@
       "languageVersion": "3.4"
     },
     {
+      "name": "intl",
+      "rootUri": "file:///Users/fmf/.pub-cache/hosted/pub.dev/intl-0.20.2",
+      "packageUri": "lib/",
+      "languageVersion": "3.3"
+    },
+    {
       "name": "leak_tracker",
       "rootUri": "file:///Users/fmf/.pub-cache/hosted/pub.dev/leak_tracker-11.0.2",
       "packageUri": "lib/",
@@ -252,6 +264,12 @@
       "rootUri": "file:///Users/fmf/.pub-cache/hosted/pub.dev/lottie-3.3.2",
       "packageUri": "lib/",
       "languageVersion": "3.9"
+    },
+    {
+      "name": "markdown",
+      "rootUri": "file:///Users/fmf/.pub-cache/hosted/pub.dev/markdown-7.3.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.2"
     },
     {
       "name": "matcher",

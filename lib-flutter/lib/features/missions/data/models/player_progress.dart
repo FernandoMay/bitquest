@@ -7,14 +7,14 @@ class PlayerProgress {
   final Map<String, MissionProgress> missionProgress;
   final DateTime lastUpdated;
 
-  const PlayerProgress({
+  PlayerProgress({
     required this.playerId,
     this.totalXp = 0,
     this.currentLevel = 1,
     this.currentLevelXp = 0,
     this.missionProgress = const {},
-    this.lastUpdated = const DateTime.now(),
-  });
+    DateTime? lastUpdated,
+  }) : this.lastUpdated = lastUpdated ?? DateTime.now();
 
   factory PlayerProgress.fromJson(Map<String, dynamic> json) {
     final missionProgressMap = <String, MissionProgress>{};

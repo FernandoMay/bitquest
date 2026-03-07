@@ -10,10 +10,10 @@ class LocalDataSource {
   LocalDataSource({required StorageService storageService})
       : _storageService = storageService;
 
-  /// Initialize the local data source
+  /// Initialize local data source
   static Future<LocalDataSource> init() async {
-    final storageService = await StorageService.init();
-    return LocalDataSource(storageService: storageService);
+    await StorageService.init();
+    return LocalDataSource(storageService: StorageService.instance);
   }
 
   // ============ Player Data ============
