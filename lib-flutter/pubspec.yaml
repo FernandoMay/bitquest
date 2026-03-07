@@ -51,15 +51,15 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   
-  assets:
-    - assets/images/
-    - assets/animations/
-    - assets/icons/
+  # assets:
+  #   - assets/images/
+  #   - assets/animations/
+  #   - assets/icons/
   
-  fonts:
-    - family: Bitcoin
-      fonts:
-        - asset: assets/fonts/bitcoin.ttf
+  # fonts:
+  #   - family: Bitcoin
+  #     fonts:
+  #       - asset: assets/fonts/bitcoin.ttf
 
 scripts:
   build: flutter build apk
