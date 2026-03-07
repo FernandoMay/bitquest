@@ -1,0 +1,48 @@
+# This file configures the analyzer for Dart code.
+# More info: https://dart.dev/guides/language/analysis-options
+
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  exclude:
+    - "**/*.g.dart"
+    - "**/*.freezed.dart"
+    - "build/**"
+    - ".dart_tool/**"
+  
+  errors:
+    invalid_annotation_target: ignore
+    missing_required_param: error
+    missing_return: error
+
+linter:
+  rules:
+    # Avoid print statements in production code
+    avoid_print: true
+    
+    # Prefer const constructors
+    prefer_const_constructors: true
+    prefer_const_declarations: true
+    prefer_const_literals_to_create_immutables: true
+    
+    # Code style
+    prefer_single_quotes: true
+    sort_child_properties_last: true
+    use_key_in_widget_constructors: true
+    
+    # Performance
+    avoid_function_literals_in_foreach_calls: true
+    avoid_redundant_argument_values: true
+    
+    # Clean code
+    avoid_unnecessary_containers: true
+    prefer_final_locals: true
+    prefer_final_fields: true
+    
+    # Documentation
+    public_member_api_docs: false
+    
+    # Type safety
+    always_declare_return_types: true
+    avoid_dynamic_calls: false
+    strict_inference: true

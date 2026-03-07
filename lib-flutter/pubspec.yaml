@@ -1,0 +1,64 @@
+name: bitquest
+description: A gamified Bitcoin education app built with Flutter and Clean Architecture.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  # State Management
+  flutter_bloc: ^8.1.6
+  equatable: ^2.0.5
+  
+  # Navigation
+  go_router: ^13.2.0
+  
+  # Networking
+  http: ^1.2.0
+  
+  # Game Engine
+  flame: ^1.17.0
+  
+  # UI Components
+  lottie: ^3.1.0
+  google_fonts: ^6.1.0
+  cupertino_icons: ^1.0.6
+  
+  # Storage
+  shared_preferences: ^2.2.2
+  
+  # Functional Programming
+  dartz: ^0.10.1
+  
+  # Utilities
+  flutter_svg: ^2.0.9
+  cached_network_image: ^3.3.1
+  shimmer: ^3.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.1
+
+flutter:
+  uses-material-design: true
+  
+  assets:
+    - assets/images/
+    - assets/animations/
+    - assets/icons/
+  
+  fonts:
+    - family: Bitcoin
+      fonts:
+        - asset: assets/fonts/bitcoin.ttf
+
+scripts:
+  build: flutter build apk
+  run: flutter run
+  test: flutter test
+  clean: flutter clean
