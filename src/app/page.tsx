@@ -307,13 +307,17 @@ export default function BitQuestLanding() {
               </Card>
 
               <div className="flex flex-wrap gap-4">
-                <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg font-semibold">
-                  <Play className="w-5 h-5 mr-2" />
-                  Comenzar Gratis
+                <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg font-semibold" asChild>
+                  <a href="#jugar">
+                    <Play className="w-5 h-5 mr-2" />
+                    Comenzar Gratis
+                  </a>
                 </Button>
-                <Button size="lg" variant="outline" className="border-primary/50 hover:bg-primary/10 px-8 py-6 text-lg">
-                  <Download className="w-5 h-5 mr-2" />
-                  Descargar App
+                <Button size="lg" variant="outline" className="border-primary/50 hover:bg-primary/10 px-8 py-6 text-lg" asChild>
+                  <a href="/download">
+                    <Download className="w-5 h-5 mr-2" />
+                    Descargar App
+                  </a>
                 </Button>
               </div>
             </motion.div>
@@ -557,7 +561,7 @@ export default function BitQuestLanding() {
       </section>
 
       {/* Minigames Section */}
-      <section className="py-20 bg-card/30">
+      <section id="jugar" className="py-20 bg-card/30">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
