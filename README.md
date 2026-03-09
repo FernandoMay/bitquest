@@ -411,8 +411,8 @@ MIT License - BITQUEST Team 2025
   <p>⚡ Learn Bitcoin. Play the Future. ⚡</p>
   <p>
     <strong>Web:</strong> <a href="https://bitquest.mx">bitquest.mx</a> | 
-    <strong>Twitter:</strong> @bitquestmx | 
-    <strong>Discord:</strong> bitquest/discord
+    <strong>WhatsApp:</strong> <a href="https://wa.me/525525069790">+525525069790</a> | 
+    <strong>GitHub:</strong> <a href="https://github.com/FernandoMay/bitquest">bitquest</a>
   </p>
   <p>
     <a href="#top">↑ Volver arriba</a>

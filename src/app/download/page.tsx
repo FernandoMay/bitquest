@@ -314,23 +314,6 @@ export default function DownloadPage() {
             <h2 className="text-4xl md:text-5xl font-bold">
               ¿Listo para <span className="text-gradient-bitcoin">Aprender?</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Únete a la revolución del aprendizaje financiero con Bitcoin
-            </p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <Button size="lg" className="bg-primary hover:bg-primary/90 px-8 py-6 text-lg" asChild>
-                <a href="/download#android">
-                  <Download className="w-5 h-5 mr-2" />
-                  Descargar Ahora
-                </a>
-              </Button>
-              <Button size="lg" variant="outline" className="border-primary/50 hover:bg-primary/10 px-8 py-6 text-lg" asChild>
-                <a href="/">
-                  <ArrowRight className="w-5 h-5 mr-2" />
-                  Volver al Inicio
-                </a>
-              </Button>
-            </div>
           </motion.div>
         </div>
       </section>
