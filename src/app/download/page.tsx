@@ -75,11 +75,11 @@ export default function DownloadPage() {
 
   const handleDownload = (platform: string) => {
     if (platform === "android") {
-      // Descargar APK directamente
-      window.open("/api/download/android", "_blank");
+      // Descargar APK directamente desde public/apk/
+      window.open("/apk/bitquest-latest.apk", "_blank");
     } else if (platform === "web") {
       // Redirigir al juego web
-      window.open("https://jugar.bitquest.mx", "_blank");
+      window.open("/play", "_blank");
     } else if (platform === "ios") {
       // Redirigir a la página de espera de iOS
       window.open("#espera-ios", "_self");

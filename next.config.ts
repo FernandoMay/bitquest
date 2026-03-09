@@ -36,8 +36,8 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        // Headers para archivos Flutter específicos
-        source: '/flutter/(.*\\.(js|css|wasm|json|png|jpg|jpeg|gif|svg|ico))',
+        // Headers para archivos estáticos (sin regex groups)
+        source: '/flutter/(.*)',
         headers: [
           {
             key: 'Cache-Control',
@@ -61,19 +61,6 @@ const nextConfig: NextConfig = {
   
   // React config
   reactStrictMode: false,
-
-  // Webpack config para Flutter
-  webpack: (config, { isServer }) => {
-    // Ignorar archivos Flutter en el build del servidor
-    if (isServer) {
-      config.externals.push({
-        'flutter': 'flutter',
-        'flutter_bootstrap': 'flutter_bootstrap',
-      });
-    }
-    
-    return config;
-  },
 };
 
 export default nextConfig;
