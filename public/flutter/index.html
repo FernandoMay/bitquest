@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--
+    BITQUEST Flutter Web App
+    Configured for sub-path deployment at /flutter/
+  -->
+  <base href="/flutter/">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="BITQUEST - Aprende Bitcoin Jugando">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="BITQUEST">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <title>BITQUEST - Play</title>
+  <link rel="manifest" href="manifest.json">
+  
+  <!-- Custom styles for iframe integration -->
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: transparent;
+      overflow: hidden;
+    }
+    
+    /* Hide scrollbars in iframe */
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    
+    html, body {
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <!-- Flutter App Container -->
+  <div id="flutter-app"></div>
+  
+  <!-- Communication script with parent window -->
+  <script>
+    // Notify parent when app is loaded
+    window.addEventListener('load', function() {
+      // Notify parent window that Flutter app is ready
+      if (window.parent && window.parent !== window) {
+        window.parent.postMessage({
+          type: 'flutter_app',
+          action: 'app_loaded',
+          timestamp: Date.now()
+        }, '*');
+      }
+    });
+    
+    // Handle messages from parent
+    window.addEventListener('message', function(event) {
+      // Process messages from parent window
+      if (event.data?.type === 'parent_app') {
+        switch (event.data?.action) {
+          case 'navigate_to_mission':
+            // Navigate to specific mission
+            console.log('Navigate to mission:', event.data.missionId);
+            break;
+          case 'update_user_data':
+            // Update user data from parent
+            console.log('Update user data:', event.data.userData);
+            break;
+        }
+      }
+    });
+    
+    // Function to send messages to parent
+    function sendToParent(action, data) {
+      if (window.parent && window.parent !== window) {
+        window.parent.postMessage({
+          type: 'flutter_app',
+          action: action,
+          ...data,
+          timestamp: Date.now()
+        }, '*');
+      }
+    }
+    
+    // Global functions for Flutter to call
+    window.notifyParent = {
+      missionCompleted: function(missionId, xp) {
+        sendToParent('mission_completed', { missionId, xp });
+      },
+      levelUp: function(newLevel, totalXp) {
+        sendToParent('level_up', { newLevel, totalXp });
+      },
+      shareProgress: function(progress) {
+        sendToParent('share_progress', { progress });
+      },
+      openDownloadDialog: function() {
+        sendToParent('open_download_dialog', {});
+      }
+    };
+  </script>
+
+  <!-- Flutter Bootstrap -->
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>
